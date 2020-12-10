@@ -1,6 +1,6 @@
 # winston-rxjs
 
-`RxJS.Subscriber` Transport for [Winston](https://github.com/winstonjs/winston)
+`RxJS.Subject` Transport for [Winston](https://github.com/winstonjs/winston)
 
 ## Installation
 
@@ -12,14 +12,20 @@ $ npm install winston-rxjs
 
 ```js
 const winston = require("winston");
-const RxJS = require("rxjs");
+const { Subject } = require("rxjs");
 
-const winstonRxjsTransport = require("winston-rxjs");
+const logSubject = new Subject();
+const winstonRxJSTransport = require("winston-rxjs");
 
 const logger = winston.createLogger({
   level: "debug",
   format: winston.format.json(),
-  defaultMeta: { resource: "renew" },
-  transports: [new winstonRxjsTransport({ subscriber: sub })],
+  transports: [new winstonRxJSTransport({ subject: logSubject })],
 });
+
+logSubject.subscribe({ next: (logEntry) => console.log(logEntry); });
 ```
+
+The transport options are:
+
+- **subject** - `RxJS.Subject` entity (default: creates a new one by itself, at `subject` property)
