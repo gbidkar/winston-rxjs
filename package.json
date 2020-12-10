@@ -1,0 +1,28 @@
+{
+  "name": "winston-rxjs",
+  "version": "1.0.0",
+  "description": "An rxjs subscriber transport for Winston",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbidkar/winston-rxjs.git"
+  },
+  "keywords": [
+    "winston",
+    "rxjs",
+    "rxjs-subscriber"
+  ],
+  "author": "Guy Bidkar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gbidkar/winston-rxjs/issues"
+  },
+  "homepage": "https://github.com/gbidkar/winston-rxjs#readme",
+  "dependencies": {
+    "rxjs": "^6.6.3",
+    "winston-transport": "^4.4.0"
+  }
+}
